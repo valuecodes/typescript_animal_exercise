@@ -1,63 +1,81 @@
-var __assign = (this && this.__assign) || function () {
-    __assign = Object.assign || function(t) {
-        for (var s, i = 1, n = arguments.length; i < n; i++) {
-            s = arguments[i];
-            for (var p in s) if (Object.prototype.hasOwnProperty.call(s, p))
-                t[p] = s[p];
-        }
-        return t;
-    };
-    return __assign.apply(this, arguments);
+// Type***************************
+// type Dog = {
+//     name: string,
+//     age: number,
+//     weight: number,
+//     height?: number,
+//     microChipped: boolean,
+//     spayedOrNeutered : boolean,
+//     breed: string,
+//     type: string,
+//     sporty: boolean,
+//     bark: () => void
+// }
+// type Cat = {
+//     name: string,
+//     age: number,
+//     weight: number,
+//     height?: number,
+//     microChipped: boolean,
+//     spayedOrNeutered : boolean,
+//     breed: string,
+//     type: string,
+//     purr: () => void
+// }
+// ****************************************
+var petArray = [];
+var bingo = {
+    type: 'dog',
+    name: 'Bingo',
+    age: 5,
+    weight: 12,
+    height: 45,
+    microChipped: true,
+    spayedOrNeutered: true,
+    breed: 'Siberian Husky',
+    sporty: true,
+    bark: function () { return console.log('Bark!'); }
 };
-var a;
-var b;
-var c = 'true';
-a = 'bye bye'; // initial value of a number => a : number
-b = 'Hello world'; // initial value of a string => a : string
-var getMessage = function (first, second, third) {
-    return first + " " + second + " " + third;
+var bongo = {
+    type: 'dog',
+    name: 'Bongo',
+    age: 7,
+    weight: 10,
+    height: 40,
+    microChipped: true,
+    spayedOrNeutered: true,
+    breed: 'Dobermann',
+    sporty: false,
+    bark: function () { return console.log('Bark!'); }
 };
-getMessage = function (first, second, third) {
-    return 2;
+var kitty = {
+    type: 'cat',
+    name: 'Kitty',
+    age: 3,
+    weight: 3,
+    height: 30,
+    microChipped: true,
+    spayedOrNeutered: true,
+    breed: 'Siberian Cat',
+    purr: function () { return console.log('Purr!'); }
 };
-var printMessage = function (first, second, third) {
-    console.log(first + " " + second + " " + third);
+var katty = {
+    type: 'cat',
+    name: 'Katty',
+    age: 3,
+    weight: 3,
+    height: 30,
+    microChipped: true,
+    spayedOrNeutered: true,
+    breed: 'Persian Cat',
+    purr: function () { return console.log('Purr!'); }
 };
-console.log(getMessage(a, b, c));
-var arr1 = [1, 2, 3, 4, 5, 6]; // array of numbers
-var arr2 = ['hello', 'my', 'name', 'is'];
-var arr3 = [true, false, true, false];
-var arr4 = [true, 1];
-var arr5 = [];
-var arr6 = [];
-arr6.push('Laura', 2, false, 'Hoang');
-console.log(arr6);
-arr4.push(25);
-arr4.push(false);
-console.log(arr4);
-arr4[0] = 10;
-console.log(arr4);
-arr1.push(10);
-arr2.push('Hoang');
-arr3.push(true); // pushing a variable of different datatype other than a number into an array of numbers
-console.log(arr2);
-var obj1 = {
-    name: 'Hoang',
-    age: 30,
-    jump: true
-};
-obj1 = {
-    name: 'Margit',
-    age: 0,
-    jump: false
-};
-var obj2 = __assign(__assign({}, obj1), { lastName: 'Tennosaar' });
-console.log(obj2);
-// obj1.lastName = 'Tennosaar'
-var main = document.getElementById('mainContent');
-main.innerHTML = "Hello " + obj2.name + " " + obj2.lastName;
-// console.log(main.value)
-var firstName = document.getElementById('#firstName');
-var inputs = document.querySelectorAll('.userInput');
-console.log(inputs[0].value);
-console.log(firstName.value);
+petArray.push(bingo, bongo, kitty, katty);
+function adopt(animal) {
+    var sentence = '';
+    sentence += "We have adopted a " + animal.type + ": " + animal.name + ", he/she is " + animal.age + " years old, vaccinated" + (animal.sporty ? ' and is sporty' : '') + ".";
+    console.log(sentence);
+}
+petArray.forEach(function (animal) {
+    adopt(animal);
+});
